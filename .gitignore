@@ -1,3 +1,4 @@
 *.exe
 .vscode
 del.py
+del_exe.py
