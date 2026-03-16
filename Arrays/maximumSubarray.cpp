@@ -38,7 +38,7 @@ public:
         }
         return maxi;
     }
-    int maxsubArrayOptimal(vector<int> &nums)
+    int maxsubArrayOptimal(vector<int> &nums) // if
     {
         int n = nums.size();
         int maxi = INT_MIN;
