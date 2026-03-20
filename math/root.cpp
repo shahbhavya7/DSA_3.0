@@ -8,8 +8,8 @@ public:
 
     int mySqrt(int x)
     {
-        vector<int> factors = PrimeFactors(x);
-        int result = 1;
+        if (x<2) return x; // it is x as sqrt(0) = 0 and sqrt(1) = 1
+        
     }
 };
 
