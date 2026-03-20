@@ -41,7 +41,7 @@ public:
 
 int main()
 {
-    int n = 13;
+    int n = 156;
     Solution sol;
     vector<int> factors = sol.primeFactors(n);
     cout << "Prime factors of " << n << ": ";
