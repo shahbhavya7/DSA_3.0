@@ -15,7 +15,23 @@ class Solution:
             prev = current
             current  = next_node
         return prev 
-
+    
+    def reverseListByStack(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        stack = []
+        current = head
+        
+        while current:
+            stack.append(current.val)
+            current = current.next
+        
+        current = head
+        
+        while current:
+            current.val = stack.pop()
+            current = current.next
+            
+        return head
+        
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -48,6 +64,6 @@ linked_list.append(3)
 linked_list.print_list()
 # reverse the linked list
 sol = Solution()
-linked_list.head = sol.reverseList(linked_list.head)
+linked_list.head = sol.reverseListByStack(linked_list.head)
 # print the elements of the reversed linked list
 linked_list.print_list()
