@@ -10,8 +10,8 @@ class Solution:
         count = self.countNodes(head)
         if n > count:
             return head
-        node_to_remove = count - n + 1
-        if node_to_remove == 1:
+        node_to_remove = count - n + 1 
+        if node_to_remove == 1: # if we need to remove the head node then we just return the next node as the new head
             return head.next
         current = head
         current_position = 1
