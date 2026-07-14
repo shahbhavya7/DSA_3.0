@@ -1,0 +1,32 @@
+from typing import List
+
+class Solution:
+    
+    def findCombination(self, index, target, arr, ans, combination):
+        if target == 0:
+            ans.append(combination.copy())
+            return
+
+        if index == len(arr) or target < 0:
+            return
+        
+        combination.append(arr[index])
+        self.findCombination(index, target-arr[index], arr, ans, combination)
+        combination.pop()
+        self.findCombination(index+1, target, arr, ans, combination)
+    
+    
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        ans = []
+        combination = []
+        
+        self.findCombination(0, target, candidates, ans, combination)
+        return ans
+        
+
+# Example usage
+solution = Solution()
+candidates = [2, 3, 6, 7]
+target = 7
+result = solution.combinationSum(candidates, target)
+print(f"The combinations of {candidates} that sum up to {target} are: {result}")
