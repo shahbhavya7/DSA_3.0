@@ -34,7 +34,11 @@ class Solution:
             return None 
         while len(lists) > 1: # loop until we have only one list left
             temp = []
-            for i in range(0, len(lists), 2): # 0 to len(lists) with step of 2 means we take two lists at a time, specifying step helps us to avoid index out of range error
+            for i in range(0, len(lists), 2): 
+                # 0 to len(lists) with step of 2 means we take two lists at a time, specifying step helps us to avoid index out of range error
+                # if there is odd number of lists, then the last list will be merged with None, which will return the last list itself,
+                # so that will be added to temp, and in the next iteration of while loop, it will be merged with the second last list,
+                # and so on until we have only one list left
                 list1 = lists[i]
                 list2  = lists[i + 1] if (i + 1) < len(lists) else None # python allows to check conditions for list in one line
                 temp.append(self.mergeTwoLists(list1, list2)) # merge two lists and append the merged list to temp

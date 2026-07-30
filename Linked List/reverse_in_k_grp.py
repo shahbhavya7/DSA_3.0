@@ -29,40 +29,30 @@ class LinkedList:
             current_node = current_node.next
             
 class Solution:
-    def length(self, head: ListNode) -> int:
-        count = 0
-        current = head
-        while current:
-            count += 1
-            current = current.next
-        return count
     
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        if not head or k <= 1:
-            return head
+        temp = head
+        count = 0
+        while count < k: # check if there are at least k nodes left in the linked list, if not, return the head as is, no need to reverse the remaining nodes 
+            if not temp:
+                return head
+            temp = temp.next
+            count += 1
+            
+        new_head = self.reverseKGroup(temp, k) # reverse the next k nodes recursively and get the new head of the reversed list
         
-        length = self.length(head)
-        cnt = length // k
-        
-        while cnt > 0:
-            prev = None
-            current = head
-            next_node = None
+        temp = head
+        count = 0
+        while count < k: # reverse the current k nodes
+            next_node = temp.next
+            temp.next = new_head
+            new_head = temp # move the new head to the current node as for next iteration, the current node will become the new head of the reversed list
+            # and so on until we reach the end of the k nodes
+            temp = next_node # next current node is old current node's next node which is stored in next_node so it can preserved 
+            count += 1
             
-            for _ in range(k): 
-                next_node = current.next
-                current.next = prev
-                prev = current
-                current = next_node
-            
-            if head:
-                head.next = current
-            
-            head = prev
-            cnt -= 1
-            
-        return head
-    
+        return new_head # return the new head of the reversed list
+
 # create a linked list and append some elements to it
 linked_list = LinkedList()
 linked_list.append(1)
