@@ -20,7 +20,7 @@ class Solution:
         for x in nums2: # iterate through each element in nums2
             while stack and stack[-1] < x: # while the stack is not empty and the top element of the stack is less than the current element x
                 ng[stack.pop()] = x # the next greater element for the popped element is x
-            stack.append(x)
+            stack.append(x) # at the end of loop we  get
             
         for x in stack:
             ng[x] = -1
