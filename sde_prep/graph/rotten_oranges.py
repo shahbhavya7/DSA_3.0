@@ -36,7 +36,7 @@ class Solution:
                         grid[nr][nc] = 2 # rot the fresh orange
                         queue.append((nr, nc))
 
-            if queue:
+            if queue: # if there are still rotten oranges in the queue, increment the minutes counter
                 minutes += 1
 
         # Step 3: Check if all oranges have rotted
