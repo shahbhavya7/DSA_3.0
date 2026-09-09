@@ -36,9 +36,13 @@ class BST:
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         count = 0
-        if root is None:
-            return count
+        if root is None: # this is the base case, if the root is None i.e we have reached end of branch, we return 0 as the maximum depth
+            # and then going back up the recursion stack, we will add 1 for each node we encounter, which will give us the maximum depth of the tree
+            return 0 # if the root is None, return 0 as the maximum depth
 
-        left_depth = self.maxDepth(root.left)
-        right_depth = self.maxDepth(root.right)
+        left_depth = self.maxDepth(root.left) # left depth stores has the maximum depth of the left subtree
+        right_depth = self.maxDepth(root.right) # right depth stores has the maximum depth of the right subtree
+
+        return max(left_depth, right_depth) + 1 # return the maximum depth of the left and right subtree + 1 for the current node while going back up the recursion stack
+
         
