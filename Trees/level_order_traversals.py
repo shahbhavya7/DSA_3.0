@@ -22,7 +22,7 @@ class BST:
             if node.left is None:
                 node.left = TreeNode(val)
             else:
-                self._insert(node.left, val)
+                self._insert(node.left, val)    
         elif val > node.val:
             if node.right is None:
                 node.right = TreeNode(val)

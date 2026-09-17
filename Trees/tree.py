@@ -47,10 +47,10 @@ if __name__ == "__main__":
     solution = Solution()
     
     print("Preorder Traversal:")
-    solution.preorder(root)
+    solution.preorder(root) # output: 1 2 4 5 3
 
     print("\nInorder Traversal:")
-    solution.inorder(root)
+    solution.inorder(root) # output: 4 2 5 1 3
 
     print("\nPostorder Traversal:")
-    solution.postorder(root)
+    solution.postorder(root) # output: 4 5 2 3 1

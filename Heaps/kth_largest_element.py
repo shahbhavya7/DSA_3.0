@@ -10,7 +10,7 @@ class Solution:
             if len(min_heap) > k: # If the size of the min-heap exceeds k, pop the smallest element from the heap as we are only interested in the k largest elements
                 heapq.heappop(min_heap)
 
-        return min_heap[0]  # The root of the min-heap is the kth largest element
+        return min_heap[0]  # The root of the min-heap is the kth largest element i.e., the smallest element in the heap of k largest elements
 
 
 
